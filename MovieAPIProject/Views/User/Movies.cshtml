@@ -1,0 +1,25 @@
+﻿
+<h2>Movies</h2>
+
+
+<table class="table-bordered">
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@movie.imdbId</td>
+            <td>@movie.Title</td>
+            <td>@movie.Year</td>
+            <td>@movie.Rated</td>
+            <td>@movie.Genre</td>
+            <td>@movie.Plot</td>
+            <td>@movie.imdbRatings</td>
+            <td>@movie.Poster</td>
+        </tr>
+    }
+</table>
+
+<form action="../Movies/RemoveFavorite">
+    <input type="text" name="Id" placeholder="ID to Remove" />
+    <input type="submit" />
+</form>
+
