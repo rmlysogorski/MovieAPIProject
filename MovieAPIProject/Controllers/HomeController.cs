@@ -15,5 +15,6 @@ namespace MovieAPIProject.Controllers
             JObject jData = MovieDAL.GetMovieAPI();
             return View(jData);
         }
+       
     }
 }
