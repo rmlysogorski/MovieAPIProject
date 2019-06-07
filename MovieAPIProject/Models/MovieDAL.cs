@@ -11,10 +11,10 @@ namespace MovieAPIProject.Models
     public class MovieDAL
     {
         private static readonly string APIKey = GetAPIKey();
-        public static JObject GetMovieAPI()
+        public static JObject GetMovieAPI(string options)
         {
             
-            HttpWebRequest request = WebRequest.CreateHttp($"http://www.omdbapi.com/?apikey={APIKey}&s=good");
+            HttpWebRequest request = WebRequest.CreateHttp($"http://www.omdbapi.com/?apikey={APIKey}&{options}");
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
 
 

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Search the Movie Database!";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form action="../Search/SearchDatabase" method="post">
+    <input type="text" name="searchQuery" placeholder="Title: " />
+    <input type="submit" value="Search" />
+</form>
+
+<p>@ViewBag.SearchResults</p>

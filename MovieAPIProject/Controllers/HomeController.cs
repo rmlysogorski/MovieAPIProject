@@ -12,8 +12,9 @@ namespace MovieAPIProject.Controllers
     {
         public ActionResult Index()
         {
-            JObject jData = MovieDAL.GetMovieAPI();
+            JObject jData = MovieDAL.GetMovieAPI("");
             return View(jData);
         }
+
     }
 }

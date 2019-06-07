@@ -21,7 +21,7 @@ namespace MovieAPIProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MovieAPIUsers", throwIfV1Schema: false)
         {
         }
 
