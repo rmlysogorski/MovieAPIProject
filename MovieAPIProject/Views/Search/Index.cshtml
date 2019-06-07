@@ -1,4 +1,4 @@
-﻿
+﻿@model List<MovieAPIProject.Models.MovieDisplayContent>
 @{
     ViewBag.Title = "Search the Movie Database!";
 }
@@ -6,8 +6,23 @@
 <h2>@ViewBag.Title</h2>
 
 <form action="../Search/SearchDatabase" method="post">
-    <input type="text" name="searchQuery" placeholder="Title: " />
+    <input type="text" name="searchQuery" placeholder="Title: " required /><br />
+    <input type="text" name="searchYear" placeholder="Year: " pattern="[0-9]{4}" title="Please enter a 4 digit year - i.e. 1999" /><br />
     <input type="submit" value="Search" />
 </form>
 
-<p>@ViewBag.SearchResults</p>
+@if (Model != null)
+{
+    foreach (var m in Model)
+    {
+        <hr />
+        <p>@m.Title</p>
+        <p>@m.Genre</p>
+        <p>@m.Rated</p>
+        <p>@m.Year</p>
+        <p>@m.Plot</p>
+        <p>@m.MCRating</p>
+        <img src="@m.Poster" />
+    }
+}
+
