@@ -1,0 +1,42 @@
+﻿@model List<MovieAPIProjectV2.Models.MovieDisplayContent>
+@{
+    ViewBag.Title = "Search the Movie Database!";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form action="../Search/SearchDatabase" method="post">
+    <input type="text" name="searchQuery" placeholder="Title: " required /><br />
+    <input type="text" name="searchYear" placeholder="Year: " pattern="[0-9]{4}" title="Please enter a 4 digit year - i.e. 1999" /><br />
+    <input type="submit" value="Search" />
+</form>
+
+@if (Model != null)
+{
+    foreach (var m in Model)
+    {
+        if (m.Title != null)
+        {
+            <hr />
+            <div style="width:700px">
+                @if (m.Poster != null)
+                {
+                    <img style="display:inline-block;float:left;" src="@m.Poster" />
+                }
+                <h3>@m.Title</h3>
+                <p>@m.Year @m.Rated @m.Genre</p>
+                <p>Metascore: @m.Metascore</p>
+                <p>@m.Plot</p>
+                <a href="../User/AddFavorite?ImdbId=@m.ImdbId">Add To Favorites</a>
+                <iframe width="300"
+                        src="@m.VideoUrl"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        }
+
+    }
+}
+
+<div style="clear:left;height:10px;"></div>

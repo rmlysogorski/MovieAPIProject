@@ -1,0 +1,26 @@
+﻿@model List<MovieAPIProjectV2.Models.MovieDisplayContent>
+<h2>Movies</h2>
+
+
+
+    @foreach (var movie in Model)
+    {
+        <div style="max-width:700px;height:auto;clear:left;padding:10px" id="ProductBox">
+            <div style="display:inline-block;float:left;padding:10px">
+                @if (movie.Poster != null)
+                {
+                    <img src="@movie.Poster" />
+                }
+            </div>
+            <h3>@movie.Title</h3>
+           
+            <p><a href="../User/RemoveFavorite?ImdbId=@movie.ImdbId">Remove</a></p>
+            <p>@movie.Year</p>
+            <p>@movie.Rated</p>
+            <p>@movie.Genre</p>
+            <p>Metascore: @movie.Metascore</p>
+            <p>@movie.Plot</p>
+        </div>
+    }
+
+<div style="clear:left;height:10px;"></div>
