@@ -5,11 +5,13 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form action="../Search/SearchDatabase" method="post">
-    <input type="text" name="searchQuery" placeholder="Title: " required /><br />
-    <input type="text" name="searchYear" placeholder="Year: " pattern="[0-9]{4}" title="Please enter a 4 digit year - i.e. 1999" /><br />
-    <input type="submit" value="Search" />
-</form>
+<div id="searchBar">
+    <form action="../Search/SearchDatabase" method="post">
+        <input type="text" name="searchQuery" placeholder="Title: " required />
+        <input type="text" name="searchYear" placeholder="Year: " pattern="[0-9]{4}" title="Please enter a 4 digit year - i.e. 1999" />
+        <input type="submit" value="Search" />
+    </form>
+</div>
 
 @if (Model != null)
 {
@@ -17,7 +19,7 @@
     {
         if (m.Title != null)
         {
-            <hr />
+            <hr style="clear:both" />
             <div style="width:700px">
                 @if (m.Poster != null)
                 {

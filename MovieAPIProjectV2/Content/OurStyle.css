@@ -1,11 +1,15 @@
 ﻿
 .dropdown {
-    position:fixed;
+    /*position:fixed;*/
     display: inline-block;
+    padding-top:13px;
+    padding-left:13px;
+    font-size:1.25em;
 }
 
 .dropdown-content {
     display: none;
+    font-size:1em;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -18,3 +22,10 @@
     display: block;
 }
 
+#searchBar{
+    border:2px solid blue;
+    border-radius:5px;
+    padding:5px;
+    width:auto;
+    display:inline-block;
+}
