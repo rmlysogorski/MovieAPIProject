@@ -40,7 +40,7 @@ namespace MovieAPIProjectV2.Models
             else
             {
                 Year = jData["Year"].ToString();
-                Poster = jData["Poster"].ToString();
+                Poster = jData["Poster"].ToString();              
                 Rated = jData["Rated"].ToString();
                 Genre = jData["Genre"].ToString();
                 Plot = jData["Plot"].ToString();

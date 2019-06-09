@@ -63,32 +63,7 @@ namespace MovieAPIProjectV2.Models
             }
             return null;
         }
-
-        public static JArray GetVideoAPIArray(string options, string externalSource = null)
-        {
-            //options should be:
-            //find/{external_id} to find the movie Id
-            //movie/{movie_id}/videos to find the video trailer
-            //externalSource should equal "&external_source=imdb_id"
-            string url = $"https://api.themoviedb.org/3/{options}?api_key={TMDbAPIKey}&language=en-US{externalSource}";
-
-            HttpWebRequest request = WebRequest.CreateHttp(url);
-
-            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
-
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                StreamReader data = new StreamReader(response.GetResponseStream());
-
-                JArray movieData = JArray.Parse(data.ReadToEnd());
-                return movieData;
-            }
-            return null;
-        }
-
+       
         private static string[] GetAPIKey()
         {
             int count = 0;
