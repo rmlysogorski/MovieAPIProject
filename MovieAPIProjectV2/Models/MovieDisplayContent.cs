@@ -20,10 +20,11 @@ namespace MovieAPIProjectV2.Models
 
         public MovieDisplayContent(JObject jData, string code)
         {
-            Title = jData["Title"].ToString();
+
+            ImdbId = jData["imdbID"].ToString();
             if (code == "search")
             {
-                jData = MovieDAL.GetMovieAPI($"&t={Title}");
+                jData = MovieDAL.GetMovieAPI($"&i={ImdbId}");
             }
             if(jData["Response"].ToString() == "False")
             {
@@ -39,13 +40,13 @@ namespace MovieAPIProjectV2.Models
             }
             else
             {
+                Title = jData["Title"].ToString();
                 Year = jData["Year"].ToString();
                 Poster = jData["Poster"].ToString();              
                 Rated = jData["Rated"].ToString();
                 Genre = jData["Genre"].ToString();
                 Plot = jData["Plot"].ToString();
                 Metascore = jData["Metascore"].ToString();
-                ImdbId = jData["imdbID"].ToString();
                 VideoUrl = GetVideoUrl(ImdbId);
             }           
 

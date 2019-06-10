@@ -38,12 +38,15 @@
                             <p>@m.Year @((m.Rated != "N/A") ? m.Rated : "") @((m.Genre != "N/A") ? m.Genre : "")</p>
                             <p class="plot">@((m.Plot != "N/A") ? m.Plot : "")</p>
                             <p class="metascore">@((m.Metascore != "N/A") ? "Metascore: " + m.Metascore : "")</p>
-                            <iframe class="embed-responsive-item"
-                                    width="300"
-                                    src="@m.VideoUrl"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                            @if (m.VideoUrl != null)
+                            {
+                                <iframe class="embed-responsive-item"
+                                        width="300"
+                                        src="@m.VideoUrl"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            }
                             <br />
                             <a class="btn-primary" href="../User/AddFavorite?ImdbId=@m.ImdbId">Add To Favorites</a>
                         </div>

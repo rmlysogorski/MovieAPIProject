@@ -25,7 +25,7 @@ namespace MovieAPIProjectV2.Controllers
                     return View();
                 }
                 List<MovieDisplayContent> movies = new List<MovieDisplayContent>();
-                for (int i = 0; i < jData["Search"].Count(); i++)
+                for (int i = 0; i < (int)jData["totalResults"]; i++)
                 {
                     MovieDisplayContent newMovie = new MovieDisplayContent((JObject)jData["Search"][i], "search");
                     movies.Add(newMovie);
