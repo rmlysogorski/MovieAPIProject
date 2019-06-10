@@ -8,6 +8,10 @@
 
 <div class="movieBoxWrapper">
     <div class="movieBox">
+        @if(ViewBag.Grant != null)
+        {
+            <img src="@ViewBag.Grant" />
+        }
         <h2>@ViewBag.Title</h2>
         <div id="searchBar">
             <form action="../Search/SearchDatabase" method="post">
@@ -57,4 +61,4 @@
         }
 
 
-        <div style="clear:left;height:10px;"></div>
+        <div style="clear:left;height:100px;"></div>

@@ -42,6 +42,11 @@ namespace MovieAPIProjectV2.Controllers
 
         public ActionResult SearchDatabase(string searchQuery, string searchYear)
         {
+            if(searchQuery == "Grant Chirpus")
+            {
+                ViewBag.Grant = "https://media0.giphy.com/media/ZZYfo0y5L5XyeV1kzk/giphy.gif";
+                return View("Index");
+            }
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("../Account/Login");
